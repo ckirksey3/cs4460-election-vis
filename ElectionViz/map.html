@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+   <style type="text/css">
+   #dbg  
+   {
+     font-family: Arial,Helvetica,Sans-serif;
+     border: 1px solid black;
+     width: 600;
+     clear:both;
+     float:left;
+   }
+   body 
+   {
+     background:#000;
+     color:white;
+     font-family: Arial,Helvetica,Sans-serif;
+   }
+   a 
+   {
+       color: #009de9;
+       outline: none;
+   } 
+   a:hover 
+   {
+       text-decoration: none;
+   }
+
+   </style>
+
+    <title>US MAP</title>
+
+    <script type="text/javascript" src="MapConfig.js"> </script>
+    <script type="text/javascript" src="Map.js">   </script>
+
+    <style type="text/css">
+      canvas { border: 1px solid black; }
+    </style>
+  </head>
+
+
+  <body onload="map_main();" >
+
+  <div style="width:800px;float:left;">
+
+  <canvas id="map_canvas" width="800" height="480" style="position:relative;">
+      <!--- OPTIONAL ERROR MESSAGE FOR USERS WITH OLD BROWSERS --->
+      <H2 align="center">
+        Firefox, Opera, Chrome or other HTML5 compliant browser required.
+        <br>
+      </H2>
+      <H3>
+         <p align="center">
+         This site requires a modern browser for graphics.  
+         <br><br>
+         A compliant browser can be downloaded from any of the following sites:
+         <br>
+         <a href="http://www.firefox.com/">Firefox</a><br>
+         <a href="http://www.opera.com/">Opera</a><br>
+         <a href="http://www.google.com/chrome">Chrome</a>
+      </H3>
+      <!--- END OPTIONAL ERROR MESSAGE --->
+  </canvas>
+
+  </div>
+
+<br clear="all">
+
+  </body>
+</html>
