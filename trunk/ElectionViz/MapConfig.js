@@ -66,17 +66,55 @@
 
    // Called during loading, put config code here
 
+   var evMap = new Object();
+
+   var states = new Array("AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FL", "GA", "HI", "ID", "IL",
+                     "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE",
+                     "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX",
+                   "UT", "VT", "VA", "WA", "WV", "WI", "WY");
+  var votes = new Array(9, 3, 11, 6, 55, 9, 7, 3, 3, 29, 16, 4, 4, 20, 11, 6, 6, 8, 8, 4, 10, 11, 16, 10, 6, 10, 
+               3, 5, 6, 4, 14, 5, 29, 15, 3, 18, 7, 7, 20, 4, 9, 3, 11, 38, 6, 3, 13, 12, 5, 10, 3);
+
+   
    function map_userSetup()
    {
-
+      var isRed = true;
+      var i = 0;
+      for(var abbrev in states)
+      {
+         evMap[states[abbrev]] = votes[i];
+         //document.write(states[abbrev] + " (" + votes[i] + ") "); 
+         i++;
+      }
       for ( var abbrev in g_map_stateMap )
       {
          var state = g_map_stateMap[abbrev]; 
          var nameAndAbbrev = state.myPrettyName + "  (" + state.myAbbrev + ")";
 
+         //state.myBaseRGB = [255, 0, 0];
+
          state.setInfoBoxText(nameAndAbbrev);
          state.addInfoBoxText(""); // add a blank line
+
+         g_map_stateMap[abbrev].myBaseRGB = [evMap[abbrev]*15,0,0];
+         /*if(isRed)
+         {
+            g_map_stateMap[abbrev].myBaseRGB = [evMap[abbrev]*10,0,0];
+            g_map_stateMap[abbrev].myHighlightRGB = [255,0,0];
+            isRed = false;
+         }
+         else
+         {
+            g_map_stateMap[abbrev].myBaseRGB = [0,0,255];
+            g_map_stateMap[abbrev].myHighlightRGB = [255,0,0];
+            isRed = true;
+         }*/
       }
+
+      for(var i = 0;  i<56; i= i+5)
+      {
+         document.getElementById("map_key").innerHTML += "<span style='color:rgb(" + i*10 + ",0,0)'>" + i + " </span>";
+      }      
 
       g_map_stateMap["AL"].addInfoBoxText("Population: 4,802,982");
       g_map_stateMap["AK"].addInfoBoxText("Population: 721,523");
@@ -200,5 +238,3 @@
       
       return;
 }
-
-
