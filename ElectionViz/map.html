@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <html>
   <head>
+    <title>US MAP</title>
    <style type="text/css">
    #dbg  
    {
@@ -25,10 +26,15 @@
    {
        text-decoration: none;
    }
+  </style>
+  <script type="text/javascript" src="jquery.min.js"></script>
+  <script type="text/javascript" src="twitStream.js"></script>
 
-   </style>
 
-    <title>US MAP</title>
+    <script type="text/javascript">
+      showTweetLinks='all';
+    </script>
+    <link rel="stylesheet" href="twit-stream.css" />
 
     <script type="text/javascript" src="MapConfig.js"> </script>
     <script type="text/javascript" src="Map.js">   </script>
@@ -41,6 +47,14 @@
 
   <body onload="map_main();" >
   <div style="font-size:20px"><center>U.S. Electoral Map</center></div>
+
+<select>
+  <option value="electorial">Electorial Votes</option>
+  <option value="election">2012 Election</option>
+  <option value="google">Google Trends</option>
+  <option value="twitter">Twitter Activity</option>
+</select>
+
   <div style="width:800px;float:left;">
 
   <canvas id="map_canvas" width="800" height="480" style="position:relative;">
@@ -55,5 +69,10 @@
   <div style="background:grey"> Electoral Votes 
     <div id="map_key"></div>
   </div>
+
+  <br>
+  <p>Five most recent tweets mentioning <a target="_blank" href="http://search.twitter.com/search?q=%23obama+OR+romney">obama OR romney</a>:</p>
+  <div class="twitStream 5" id="tweets" title="obama+OR+romney"></div>
+
   </body>
 </html>
