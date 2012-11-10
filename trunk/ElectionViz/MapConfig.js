@@ -97,6 +97,7 @@
          state.addInfoBoxText(""); // add a blank line
 
          g_map_stateMap[abbrev].myBaseRGB = [evMap[abbrev]*15,0,0];
+         g_map_stateMap[abbrev].addInfoBoxText("Electoral Votes: " + evMap[abbrev]);
          /*if(isRed)
          {
             g_map_stateMap[abbrev].myBaseRGB = [evMap[abbrev]*10,0,0];
@@ -231,8 +232,8 @@
       {
          var state = g_map_stateMap[abbrev]; 
          state.addInfoBoxText("");
-         state.addInfoBoxText("");
-         state.addInfoBoxText("Put stuff here");
+         //state.addInfoBoxText("");
+         //state.addInfoBoxText("Put stuff here");
       }
 
       
