@@ -1,4 +1,3 @@
-
 function map_main()
 {
    if (!map_initCanvas())
@@ -151,21 +150,32 @@ function map_startRenderLoop()
    g_map_renderInterval = setInterval(map_renderLoop, 10);
 }
 
+var obamaVotes = new Array(38, 41, 44, 37, 59, 51, 58, 59, 91, 50, 45, 71, 33, 57, 43, 52, 38, 38, 41, 56, 61, 61, 54, 53, 43, 44, 42, 38, 52, 52, 58, 53, 62, 48, 39, 50, 33, 54, 52, 63, 44, 40, 39, 41, 25, 67, 51, 56, 36, 53, 28);
+var romneyVotes = new Array(60, 55, 54, 60, 38, 46, 40, 40, 7, 49, 53, 27, 64, 41, 54, 46, 60, 60, 57, 40, 36, 37, 44, 45, 55, 53, 55, 60, 45, 46, 40, 43, 36, 50, 58, 48, 66, 42, 46, 35, 54, 57, 59, 57, 72, 31, 47, 41, 62, 46, 69);
 
 function map_renderLoop()
 {
    var highState = null;
+   var counter = 0;
+   var index = 0;
    for ( var i in g_map_stateMap )
    {
       if ( ! g_map_stateMap[i].myHighlighted )
          g_map_stateMap[i].draw();
       else
+	  {
          highState = g_map_stateMap[i];
+		 index = counter;
+	  }
+	  counter = counter + 1;
    }
    if ( highState != null )
    {
       highState.draw();
+	  createPieChart(romneyVotes[index], obamaVotes[index]);
    }
+   
+   
 }
 
 function map_Polygon()
